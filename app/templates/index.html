@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if current_user.is_anonymous %}
+        <h1>Welcome, login to view more</h1>
+    {% else %}
+        <h1>Welcome back, {{ current_user.first_name + " " + current_user.last_name }} !!</h1>
+    {% endif %}
+{% endblock %}

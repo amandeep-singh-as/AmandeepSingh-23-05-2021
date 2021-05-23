@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            <div class="container">
+                <h1>Login</h1>
+                <br/>
+                <div class="container-fluid border rounded shadow p-4 mb-4 bg-white">
+                    {% if message.visible %}
+                    <label style="color: red;">{{ message.text }}</label>
+                    {% endif %}
+                    <form action= {{ url_for('login') }} method='POST'>
+                        <div class="form-group">
+                            <label for="usr">Username:</label>
+                            <input type="email" class="form-control" id="usr" required name="username">
+                          </div>
+                          <div class="form-group">
+                            <label for="pwd">Password:</label>
+                            <input type="password" class="form-control" id="pwd" required name="password">
+                          </div>
+
+                          <hr>
+                          <label for = "register">Not a member?</label> <a href={{ url_for('register') }} id="register">Register</a>
+                          <hr>
+
+                          <button type="submit" class="btn btn-outline-primary btn-block">Log in</button>
+                          
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+{% endblock %}
